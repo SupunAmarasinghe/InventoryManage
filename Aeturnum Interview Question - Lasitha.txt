@@ -1,0 +1,25 @@
+An online marketing platform needs to implement the following to process their orders.
+
+- Add product items to inventory catalog
+1. A product item would consists of the following attributes.
+id - random UUID
+name - product name
+category - product category. Can be one of tools, electronics, toys, apparel, hardware
+price - price of the item
+quantity - quantity of an item
+
+2. Some of the items can have offers. For those items an offer percentage will be defined.
+3. For the initial implementation, the inventory catalog can be a globally defined list.
+
+- Checkout order
+1. A order can contain one or many products in the inventory catalog, added to a shopping cart.
+2. An item in the shopping cart would need to have the product information as well as the no of items being bought.
+3. The checkout process will calculate the total price(gross price) of the items.
+4. If an item quantity is not sufficient, then the user would have to be notified.
+5. For items that have offers, need to calculate the offer amounts separately.
+6. The offer amounts are calculated based on the following rules.
+a) If the total price of a product (product price * product quantity) exceeds 100, then the offer percentage will be applied to the total price of the item.
+b) If the product quantity exceeds 10, then the offer percentage will be applied to the total price of the item.
+c) Only one of "a" or "b" rules can be applied for an offer item, but not both.
+7. Calculate the net price by using "gross price - total offer amount".
+8. The response needs to be a Json string containing the items in the shopping cart, gross amount, offer amount and the net price.
